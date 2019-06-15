@@ -1,0 +1,62 @@
+AllCops:
+  TargetRubyVersion: 2.5
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Layout/IndentFirstArgument:
+  EnforcedStyle: consistent
+Layout/ExtraSpacing:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 50
+Metrics/BlockLength:
+  Max: 40
+Metrics/ClassLength:
+  Max: 200
+Metrics/LineLength:
+  Max: 120
+Metrics/MethodLength:
+  Max: 40
+Metrics/ParameterLists:
+  Max: 7
+
+Naming/RescuedExceptionsVariableName:
+  Enabled: false
+Naming/UncommunicativeMethodParamName:
+  AllowedNames:
+    - js
+
+Style/BlockDelimiters:
+  EnforcedStyle:
+    semantic
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+Style/GuardClause:
+  Enabled: false
+Style/MultilineBlockChain:
+  Enabled: false
+Style/PreferredHashMethods:
+  Enabled: false
+Style/RaiseArgs:
+  EnforcedStyle: compact
+Style/SymbolArray:
+  Enabled: true
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+# Disabled rules can apply for whole file
+Lint/MissingCopEnableDirective:
+  Enabled: false
+Lint/UnneededCopDisableDirective:
+  Enabled: false
+
+# Autocorrect disable
+Style/SafeNavigation:
+  AutoCorrect: false
