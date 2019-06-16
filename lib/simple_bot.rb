@@ -54,10 +54,7 @@ class SimpleBot < MatrixSdk::Client
   end
 
   def run
-    if config[:debug] == true
-      Thread.abort_on_exception = true
-      MatrixSdk.debug!
-    end
+    initialize_bot
 
     puts 'Logging in'
     login(config[:user], config[:password], no_sync: true)
@@ -83,6 +80,14 @@ class SimpleBot < MatrixSdk::Client
   end
 
   private
+
+  def initialize_bot
+    puts 'Initializing bot'
+    if config[:debug] == true
+      Thread.abort_on_exception = true
+      MatrixSdk.debug!
+    end
+  end
 
   def initialize_room(room_id)
     room = find_room(room_id)
