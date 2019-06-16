@@ -1,0 +1,61 @@
+#!/bin/sh -e
+
+if [ -n "$CONFIG" ]
+then
+    echo '^reede\?$'
+    exit
+fi
+
+__kas_on() {
+    if [ -n "$1" ]
+    then d="$1"
+    else d=today
+    fi
+    date -d "$d" '+%d%m' | grep -Eq "$2"
+}
+
+__on_lyhendatud() {
+    __kas_on "$1" '2302|2206|2312|3112'
+}
+
+__on_riigipyha() {
+    __sr=x # TODO: suur reede
+    __yp=x # TODO: ülestõusmispühade 1. püha
+    __kas_on "$1" "0101|2402|$__sr|$__yp|0105|2306|2406|2008|2412|2512|2612"
+}
+
+__d="$( date '+%u' )"
+
+if __on_riigipyha
+then
+    if __on_riigipyha 'tomorrow' || [ "$__d" = '6' ]
+    then echo 'Pühad on, kasi tagasi jooma!'
+    else
+        case "$( date -d 'tomorrow' '+%u' )" in
+            1|2|3) echo 'Hakkame lõpetama!' ;;
+            4)     echo 'Äkki peaks tervisepäevad võtma?' ;;
+            5)     echo 'Võta tervisepäev ja kasi tagasi jooma!' ;;
+        esac
+    fi
+elif __on_riigipyha 'tomorrow'
+then
+    if [ "$__d" = '7' ]
+    then echo 'Pühad on, kasi tagasi jooma!'
+    elif __on_lyhendatud
+    then echo 'Jood juba?'
+    else echo 'JAH!!!'
+    fi
+elif [ "$__d" = '4' ]
+then echo 'Varareede alles.'
+elif __on_lyhendatud 'tomorrow' || __on_riigipyha '2 days'
+then echo 'Võta tervisepäev ja kasi jooma!'
+elif [ "$__d" = '3' ]
+then echo 'Kolmapäev on nädala selgroog.'
+elif [ "$__d" = '5' ]
+then echo 'JAH!!!'
+elif [ "$__d" = '6' ]
+then echo 'Nädalavahetus on, kasi tagasi jooma!'
+elif [ "$__d" = '7' ]
+then echo 'Hakkame lõpetama!'
+else echo 'Ei.'
+fi
