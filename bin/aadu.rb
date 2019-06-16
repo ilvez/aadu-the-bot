@@ -10,7 +10,7 @@ class Aadu < SimpleBot
     message = event.content[:body].strip
 
     scripts.each do |regex, file|
-      next unless message =~ /#{regex}/ # TODO: ignore case
+      next unless message =~ /#{regex}/i
 
       response = `#{ENV['PWD']}/#{file} #{message}`
       event_room(event.room_id).send_text(response)
