@@ -1,5 +1,5 @@
 homeserver_url: '' # Homeserver URL: 'https://matrix.org'
-room_id: ''        # Room ID: '#example:matrix.org'
+room_ids: ['']     # Room ID: ['#example:matrix.org', '!room_id@example.com']
 user: ''           # Bot user: 'testaadu'
 password:          # Bot password: 'secret'
 debug: false       # Debug Matrix SDK requests. true/false
