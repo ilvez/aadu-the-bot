@@ -69,7 +69,7 @@ class SimpleBot < MatrixSdk::Client
     puts 'Starting listener'
     start_listener_thread(filter: @filter.to_json, sync_interval: 1)
 
-    loop {}
+    loop { sleep 42 }
   rescue Interrupt
     puts 'Interrupted, exiting...'
   ensure
