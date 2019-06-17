@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/simple_bot'
-require 'pry'
+require 'subprocess'
 
 class Aadu < SimpleBot
   def handle_message(event)
@@ -12,7 +12,7 @@ class Aadu < SimpleBot
     scripts.each do |regex, file|
       next unless message =~ /#{regex}/i
 
-      response = `#{ENV['PWD']}/#{file} #{message}`
+      response = Subprocess.check_output(["#{ENV['PWD']}/#{file}", message])
       event_room(event.room_id).send_text(response)
       break
     end
