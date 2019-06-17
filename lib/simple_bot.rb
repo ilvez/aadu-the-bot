@@ -134,9 +134,11 @@ class SimpleBot < MatrixSdk::Client
 
   def assert_config(config)
     config.keys.each { |key|
-      unless %i[homeserver_url room_ids user password debug].include?(key)
-        raise Exception.new("Configuration missing key: #{key}")
-      end
+      raise Exception.new("Configuration missing key: #{key}") unless configuration_keys.include?(key)
     }
+  end
+
+  def configuration_keys
+    %i[homeserver_url room_ids user password debug]
   end
 end

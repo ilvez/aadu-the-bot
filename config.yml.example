@@ -3,3 +3,4 @@ room_ids: ['']     # Room ID: ['#example:matrix.org', '!room_id@example.com']
 user: ''           # Bot user: 'testaadu'
 password:          # Bot password: 'secret'
 debug: false       # Debug Matrix SDK requests. true/false
+scripts_path: ''   # Aadu scripts path: '/a/b/scripts/'
