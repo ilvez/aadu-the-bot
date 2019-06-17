@@ -133,8 +133,8 @@ class SimpleBot < MatrixSdk::Client
   end
 
   def assert_config(config)
-    config.keys.each { |key|
-      raise Exception.new("Configuration missing key: #{key}") unless configuration_keys.include?(key)
+    configuration_keys.each { |key|
+      raise Exception.new("Configuration missing key: #{key}") unless config.keys.include?(key)
     }
   end
 
