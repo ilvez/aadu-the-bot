@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/ananace/ruby-matrix-sdk.git
-  revision: 749afd3d3f99fb9090f53b95b0d4e3e218a5202c
+  revision: f7dc0f52f410003098d545b132e2ec6d42316302
   specs:
-    matrix_sdk (1.1.1)
+    matrix_sdk (2.0.0)
       logging (~> 2)
 
 GEM
@@ -12,7 +12,7 @@ GEM
     logging (2.2.2)
       little-plugger (~> 1.1)
       multi_json (~> 1.10)
-    multi_json (1.13.1)
+    multi_json (1.14.1)
     psych (3.1.0)
     subprocess (1.3.2)
 
