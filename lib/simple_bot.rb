@@ -64,7 +64,7 @@ class SimpleBot < MatrixSdk::Client
     filter[:room][:state][:senders] << mxid
     listen_for_events(filter: filter.to_json)
 
-    config[:room_ids].each { |room_id| initialize_room(room_id) }
+    config[:room_ids].each{ initialize_room(_1) }
 
     puts 'Starting listener'
     start_listener_thread(filter: @filter.to_json, sync_interval: 1)
@@ -134,7 +134,7 @@ class SimpleBot < MatrixSdk::Client
 
   def assert_config(config)
     configuration_keys.each { |key|
-      raise Exception.new("Configuration missing key: #{key}") unless config.keys.include?(key)
+      raise StandardError.new("Configuration missing key: #{key}") unless config.keys.include?(key)
     }
   end
 
