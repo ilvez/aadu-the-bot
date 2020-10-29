@@ -1,10 +1,8 @@
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.7
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
-Layout/IndentFirstArgument:
-  EnforcedStyle: consistent
 Layout/ExtraSpacing:
   Enabled: false
 
@@ -14,8 +12,6 @@ Metrics/BlockLength:
   Max: 40
 Metrics/ClassLength:
   Max: 200
-Metrics/LineLength:
-  Max: 120
 Metrics/MethodLength:
   Max: 40
 Metrics/ParameterLists:
@@ -23,9 +19,6 @@ Metrics/ParameterLists:
 
 Naming/RescuedExceptionsVariableName:
   Enabled: false
-Naming/UncommunicativeMethodParamName:
-  AllowedNames:
-    - js
 
 Style/BlockDelimiters:
   EnforcedStyle:
@@ -54,7 +47,7 @@ Style/TrailingCommaInHashLiteral:
 # Disabled rules can apply for whole file
 Lint/MissingCopEnableDirective:
   Enabled: false
-Lint/UnneededCopDisableDirective:
+Lint/RedundantCopDisableDirective:
   Enabled: false
 
 # Autocorrect disable
