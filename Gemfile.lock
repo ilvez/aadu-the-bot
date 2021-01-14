@@ -9,7 +9,7 @@ GEM
       logging (~> 2)
     multi_json (1.15.0)
     psych (3.2.1)
-    subprocess (1.5.3)
+    subprocess (1.5.4)
 
 PLATFORMS
   ruby
