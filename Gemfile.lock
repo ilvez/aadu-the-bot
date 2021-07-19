@@ -5,7 +5,7 @@ GEM
     logging (2.3.0)
       little-plugger (~> 1.1)
       multi_json (~> 1.14)
-    matrix_sdk (2.3.0)
+    matrix_sdk (2.4.0)
       logging (~> 2)
     multi_json (1.15.0)
     psych (3.3.1)
